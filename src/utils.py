@@ -159,7 +159,7 @@ def get_queue_chain(
             if citation_number:
                 attribution_text.append(f"[{citation_number}]")
             # Lazy hack as we are also ingesting unneeded conversations.json - remove when indexing is fixed    
-            if title and title != "conversations.json"::
+            if title and title != "conversations.json":
                 attribution_text.append(f"Index Title: {title}")
                 attribution_text.append(f"Video URL: {s3_document_id}")
             if url:
