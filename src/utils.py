@@ -153,15 +153,13 @@ def get_queue_chain(
         for attr in attributions:
             title = attr.get("title", "")
             url = attr.get("url", "")
-            s3_document_id = attr.get("s3_document_id", "")
             citation_number = attr.get("citationNumber", "")
             attribution_text = []
             if citation_number:
                 attribution_text.append(f"[{citation_number}]")
-            # Lazy hack as we are also ingesting unneeded conversations.json - remove when indexing is fixed    
+            # Lazy hack as we are also ingesting unneeded conversations.json - remove when indexing is fixed.     
             if title and title != "conversations.json":
-                attribution_text.append(f"Index Title: {title}")
-                attribution_text.append(f"Video URL: {s3_document_id}")
+                attribution_text.append(f"Title: {title}")
             if url:
                 attribution_text.append(f", URL: {url}")
 
